@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\backend\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // Admin
 
 Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
+
+// Admin Category Route
+
+Route::get('/categories',[CategoryController::class,'index'])->name('categories');
+Route::get('/add/category',[CategoryController::class,'add_category'])->name('add.category');
+Route::post('/store/category',[CategoryController::class,'store_category'])->name('store.category');
