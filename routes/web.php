@@ -33,3 +33,6 @@ Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logou
 Route::get('/categories',[CategoryController::class,'index'])->name('categories');
 Route::get('/add/category',[CategoryController::class,'add_category'])->name('add.category');
 Route::post('/store/category',[CategoryController::class,'store_category'])->name('store.category');
+Route::get('/edit/category/{id}',[CategoryController::class,'edit_category'])->name('edit.category');
+Route::post('/update/category/{id}',[CategoryController::class,'update_category'])->name('update.category');
+Route::get('/delete/category/{id}',[CategoryController::class,'delete_category'])->name('delete.category');

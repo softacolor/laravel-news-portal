@@ -55,8 +55,8 @@
                     <td>{{$cat->category_bn}}</td>
                     <td>{{$cat->category_en}}</td>
                     <td>
-                      <a href="" class="btn btn-info">Edit</a>
-                      <a href="" class="btn btn-danger">Delete</a>
+                      <a href="{{route('edit.category', $cat->id)}}" class="btn btn-info">Edit</a>
+                      <a href="{{route('delete.category', $cat->id)}}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
                   
@@ -64,6 +64,7 @@
                   
                 </tbody>
               </table>
+              {{ $category->links('pagination-links') }}
             </div>
           </div>
         </div>
