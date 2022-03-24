@@ -80,6 +80,22 @@
         </div>
       </li>
       <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#district" aria-expanded="false" aria-controls="district">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">District</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="district">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('district')}}"> District </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('subdistrict')}}"> Sub District </a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item menu-items">
         <a class="nav-link" href="pages/forms/basic_elements.html">
           <span class="menu-icon">
             <i class="mdi mdi-playlist-play"></i>
