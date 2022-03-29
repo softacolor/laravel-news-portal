@@ -96,6 +96,24 @@
       </li>
 
       <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#post" aria-expanded="false" aria-controls="post">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Posts</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="post">
+          <ul class="nav flex-column sub-menu">
+             <li class="nav-item"> <a class="nav-link" href="{{ route('create.post') }}"> Add Post </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('all.post') }}"> All Post </a></li>
+          </ul>
+        </div>
+      </li>
+
+      
+
+      <li class="nav-item menu-items">
         <a class="nav-link" href="pages/forms/basic_elements.html">
           <span class="menu-icon">
             <i class="mdi mdi-playlist-play"></i>
