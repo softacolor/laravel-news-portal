@@ -22,7 +22,7 @@ class PostController extends Controller
 			->join('subcategories','posts.subcategory_id','subcategories.id')
 			->join('districts','posts.district_id','districts.id')
 			->join('subdistricts','posts.subdistrict_id','subdistricts.id')
-			->select('posts.*','categories.category_en','subcategories.subcategory_en','districts.district_en','subdistricts.subdistrict_en')
+			->select('posts.*','categories.category_bn','subcategories.subcategory_bn','districts.district_bn','subdistricts.subdistrict_bn')
 			->orderBy('id','desc')->paginate(5);
 			return view('backend.post.index',compact('post'));
 

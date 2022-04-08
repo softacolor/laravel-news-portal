@@ -61,8 +61,8 @@
       <tr>
         <td> {{ $i++ }} </td>
         <td> {{ Str::limit($row->title_bn , 20) }} </td>
-        <td> {{ $row->category_en }} </td>
-        <td> {{ $row->district_en }} </td>
+        <td> {{ $row->category_bn }} </td>
+        <td> {{ $row->district_bn }} </td>
         <td> <img src="{{ $row->image }}" style="width: 50px; height: 50px;"> </td>
          
         <td>{{ Carbon\Carbon::parse($row->post_date)->diffForHumans() }} </td>

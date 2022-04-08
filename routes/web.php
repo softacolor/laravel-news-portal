@@ -7,6 +7,7 @@ use App\Http\Controllers\backend\DistrictController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\SubDistrictController;
 use App\Http\Controllers\backend\PostController;
+use App\Http\Controllers\backend\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,3 +93,19 @@ Route::get('/edit/post/{id}', [PostController::class, 'EditPost'])->name('edit.p
 Route::post('/update/post/{id}', [PostController::class, 'UpdatePost'])->name('update.post');
 
 Route::get('/delete/post/{id}', [PostController::class, 'DeletePost'])->name('delete.post');
+
+
+// Social Setting
+
+Route::get('/social/setting', [SettingController::class, 'index'])->name('social.setting');
+Route::post('/social/update/{id}', [SettingController::class, 'social_update'])->name('update.social');
+
+// SEO Setting
+
+Route::get('/seo/setting', [SettingController::class, 'seo_setting'])->name('seo.setting');
+Route::post('/seo/update/{id}', [SettingController::class, 'seo_update'])->name('update.seo');
+
+// Prayer Setting
+
+Route::get('/prayer/setting', [SettingController::class, 'prayer_setting'])->name('prayer.setting');
+Route::post('/prayer/update/{id}', [SettingController::class, 'prayer_update'])->name('update.prayer');
