@@ -169,6 +169,75 @@ class SettingController extends Controller
         );
         return Redirect()->back()->with($note);
     }
+
+    public function all_website(){
+        $website = DB::table('websites')->orderBy('id','desc')->paginate(5);
+        return view('backend.website.index',compact('website'));
+    }
+    public function add_website(){
+        return view('backend.website.create');
+    }
+    public function store_website(Request $request){
+        $validatedData = $request->validate([
+            'website_name' => 'required|unique:websites|max:255',
+            'website_url' => 'required|unique:websites|max:255',
+           ]);
+    
+             $data = array();
+             $data['website_name'] = $request->website_name;
+             $data['website_url'] = $request->website_url;
+             DB::table('websites')->insert($data);
+
+             $note = array(
+                 'message' =>'Website Inserted successfully',
+                 'alert-type' => 'success'
+
+
+             );
+    
+         return Redirect()->route('all.website')->with($note);
+
+    }
+    public function edit_website($id){
+        $website = DB::table('websites')->where('id',$id)->first();
+        return view('backend.website.edit', compact('website'));
+
+    }
+    public function update_website(Request $request,$id){
+
+        $validatedData = $request->validate([
+            'website_name' => 'required|unique:websites|max:255',
+            'website_url' => 'required|unique:websites|max:255',
+           ]);
+    
+             $data = array();
+             $data['website_name'] = $request->website_name;
+             $data['website_url'] = $request->website_url;
+             DB::table('websites')->where('id', $id)->update($data);
+
+             $note = array(
+                 'message' =>'Website Updated successfully',
+                 'alert-type' => 'success'
+
+
+             );
+    
+         return Redirect()->route('all.website')->with($note);
+
+
+    }
+
+    public function delete_website($id){
+        DB::table('websites')->where('id',$id)->delete();
+        $note = array(
+            'message' =>'Website Deleted successfully',
+            'alert-type' => 'success'
+
+
+        );
+
+    return Redirect()->route('all.website')->with($note);
+    }
     
 
 
