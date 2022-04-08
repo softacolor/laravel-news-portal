@@ -31,32 +31,32 @@
     <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Update Live Tv Setting</h4>
+          <h4 class="card-title">Update Notice Setting</h4>
           <div class="template-demo">
 
-            @if ($livetv->status == 1)                              
-            <a href="{{Route('deactive.livetv',$livetv->id)}}"><button type="button" class="btn btn-danger btn-fw">Deactive Live Tv</button></a>
+            @if ($notice->status == 1)                              
+            <a href="{{Route('deactive.notice',$notice->id)}}"><button type="button" class="btn btn-danger btn-fw">Deactive Notice</button></a>
             
             @else
-            <a href="{{Route('active.livetv',$livetv->id)}}"><button type="button" class="btn btn-primary btn-fw">Active Live Tv</button></a>
+            <a href="{{Route('active.notice',$notice->id)}}"><button type="button" class="btn btn-primary btn-fw">Active Notice</button></a>
             @endif
 
             </div>
-            @if ($livetv->status == 1) 
-            <small class="text-success">Now Live Tv  Are  Active</small>
+            @if ($notice->status == 1) 
+            <small class="text-success">Now Notice  Are  Active</small>
             @else
-            <small class="text-danger">Now Live Tv  Are  Deactive</small>
+            <small class="text-danger">Now Notice  Are  Deactive</small>
             @endif
             <br><br>
           
-          <form class="forms-sample" method="POST" action="{{ route('update.livetv',$livetv->id)}}">
+          <form class="forms-sample" method="POST" action="{{ route('update.notice',$notice->id)}}">
             @csrf
             
 
               <div class="form-group">
-                <label for="exampleTextarea1">Embed Code for Live Tv</label>
-                <textarea class="form-control" name="embed_code" id="summernote">
-                   {{ $livetv->embed_code }}
+                <label for="exampleTextarea1">Notice</label>
+                <textarea class="form-control" name="notice" id="summernote">
+                   {{ $notice->notice }}
                 </textarea>
               </div>
               
