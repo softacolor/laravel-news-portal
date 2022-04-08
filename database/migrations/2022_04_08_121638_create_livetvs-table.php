@@ -15,6 +15,8 @@ class CreateLivetvsTable extends Migration
     {
         Schema::create('livetvs', function (Blueprint $table) {
             $table->id();
+            $table->text('embed_code')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

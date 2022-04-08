@@ -83,11 +83,55 @@ class SettingController extends Controller
              $note = array(
                  'message' =>'Prayer Times Updated successfully',
                  'alert-type' => 'success'
-
-
              );
     
          return Redirect()->route('prayer.setting')->with($note);
 
     }
+
+    public function livetv_setting(){
+        $livetv = DB::table('livetvs')->first();
+        return view('backend.setting.livetv',compact('livetv'));
+    }
+
+    public function livetv_update(Request $request,$id){
+
+        $data = array();
+             $data['embed_code'] = $request->embed_code;
+                        
+             DB::table('livetvs')->where('id',$id)->update($data);
+
+             $note = array(
+                 'message' =>'Live Tv Updated successfully',
+                 'alert-type' => 'success'
+
+
+             );
+    
+         return Redirect()->route('livetv.setting')->with($note);
+
+
+    }
+    public function livetv_active(Request $request , $id){
+        DB::table('livetvs')->where('id',$id)->update(['status'=>1]);
+        $note = array(
+            'message' =>'Live Tv Active successfully',
+            'alert-type' => 'success'
+        );
+        return Redirect()->back()->with($note);
+    }
+
+    public function livetv_deactive(Request $request , $id){
+        DB::table('livetvs')->where('id',$id)->update(['status'=>0]);
+        $note = array(
+            'message' =>'Live Tv Deactive successfully',
+            'alert-type' => 'success'
+        );
+        return Redirect()->back()->with($note);
+    }
+    
+
+
+
 }
+

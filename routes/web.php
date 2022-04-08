@@ -109,3 +109,11 @@ Route::post('/seo/update/{id}', [SettingController::class, 'seo_update'])->name(
 
 Route::get('/prayer/setting', [SettingController::class, 'prayer_setting'])->name('prayer.setting');
 Route::post('/prayer/update/{id}', [SettingController::class, 'prayer_update'])->name('update.prayer');
+
+// Live TV Setting
+
+Route::get('/livetv/setting', [SettingController::class, 'livetv_setting'])->name('livetv.setting');
+Route::post('/livetv/update/{id}', [SettingController::class, 'livetv_update'])->name('update.livetv');
+
+Route::get('/livetv/active/{id}', [SettingController::class, 'livetv_active'])->name('active.livetv');
+Route::get('/livetv/deactive/{id}', [SettingController::class, 'livetv_deactive'])->name('deactive.livetv');
