@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\SubDistrictController;
 use App\Http\Controllers\backend\PostController;
 use App\Http\Controllers\backend\SettingController;
+use App\Http\Controllers\backend\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -136,3 +137,17 @@ Route::post('/store/website',[SettingController::class,'store_website'])->name('
 Route::get('/edit/website/{id}',[SettingController::class,'edit_website'])->name('edit.website');
 Route::post('/update/website/{id}',[SettingController::class,'update_website'])->name('update.website');
 Route::get('/delete/website/{id}',[SettingController::class,'delete_website'])->name('delete.website');
+
+
+// Photo Gallery Route
+
+Route::get('/photo/gallery', [GalleryController::class, 'photo_gallery'])->name('photo.gallery');
+Route::get('/add/photo', [GalleryController::class, 'add_photo'])->name('add.photo');
+Route::post('/store/photo', [GalleryController::class, 'store_photo'])->name('store.photo');
+Route::get('/edit/photo/{id}', [GalleryController::class, 'edit_photo'])->name('edit.photo');
+Route::post('/update/photo/{id}', [GalleryController::class, 'update_photo'])->name('update.photo');
+Route::get('/delete/photo/{id}', [GalleryController::class, 'delete_photo'])->name('delete.photo');
+
+
+
+Route::get('/delete/post/{id}', [PostController::class, 'DeletePost'])->name('delete.post');
