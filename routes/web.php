@@ -149,5 +149,13 @@ Route::post('/update/photo/{id}', [GalleryController::class, 'update_photo'])->n
 Route::get('/delete/photo/{id}', [GalleryController::class, 'delete_photo'])->name('delete.photo');
 
 
+// Video Gallery Route
 
-Route::get('/delete/post/{id}', [PostController::class, 'DeletePost'])->name('delete.post');
+Route::get('/video/gallery', [GalleryController::class, 'video_gallery'])->name('video.gallery');
+Route::get('/add/video', [GalleryController::class, 'add_video'])->name('add.video');
+Route::post('/store/video', [GalleryController::class, 'store_video'])->name('store.video');
+Route::get('/edit/video/{id}', [GalleryController::class, 'edit_video'])->name('edit.video');
+Route::post('/update/video/{id}', [GalleryController::class,'update_video'])->name('update.video');
+Route::get('/delete/video/{id}', [GalleryController::class, 'delete_video'])->name('delete.video');
+
+

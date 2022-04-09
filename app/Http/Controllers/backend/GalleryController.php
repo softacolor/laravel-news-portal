@@ -104,4 +104,72 @@ public function update_photo(Request $request, $id){
         return Redirect()->route('photo.gallery')->with($notification);
 }
 
+//  Video Gallery
+
+public function video_gallery(){
+    $video = DB::table('videos')->orderBy('id',('desc'))->paginate(5);
+    return view('backend.gallery.videos',compact('video'));
+}
+
+public function add_video(){
+    return view('backend.gallery.create_video');
+}
+
+
+public function store_video(Request $request){
+    $data = array();
+    $data['title'] = $request->title;
+    $data['embed_code'] = $request->embed_code;
+    $data['type'] = $request->type;
+    
+    
+    DB::table('videos')->insert($data);
+
+            $notification = array(
+          'message' => 'Video Added Successfully',
+          'alert-type' => 'success'
+      );
+
+      return Redirect()->route('video.gallery')->with($notification);
+
+}  
+
+public function edit_video($id){
+
+$video = DB::table('videos')->where('id',$id)->first();
+return view('backend.gallery.edit_video',compact('video'));
+
+}
+
+public function update_video(Request $request, $id){
+ 
+$data = array();
+  $data['title'] = $request->title;
+  $data['embed_code'] = $request->embed_code;
+  $data['type'] = $request->type;
+
+           DB::table('videos')->where('id',$id)->update($data);
+
+           $notification = array(
+         'message' => 'Video Updated Successfully',
+         'alert-type' => 'success'
+     );
+
+     return Redirect()->route('video.gallery')->with($notification);     
+} 
+
+
+public function delete_video($id){
+$video = DB::table('videos')->where('id',$id)->first();
+
+DB::table('videos')->where('id',$id)->delete();
+
+$notification = array(
+        'message' => 'Video Deleted Successfully',
+        'alert-type' => 'error'
+    );
+
+    return Redirect()->route('video.gallery')->with($notification);
+    }
+
 }

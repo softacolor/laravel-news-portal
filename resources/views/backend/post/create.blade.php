@@ -127,7 +127,7 @@
 <div class="form-group">
     <label for="exampleTextarea1">Details Bangla</label>
    <textarea class="form-control" name="details_bn" id="summernote"></textarea>
-                      </div>
+  </div>
 
 
  <div class="form-group">

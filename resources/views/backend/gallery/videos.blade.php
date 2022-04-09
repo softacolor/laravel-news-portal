@@ -31,40 +31,40 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Photos</h4>
+            <h4 class="card-title">Video</h4>
             <div class="template-demo">
-              <a href="{{ route('add.photo')}}"><button type="button" class="btn btn-primary btn-fw" style="float: right;">Add Photo</button></a>
+              <a href="{{ route('add.video')}}"><button type="button" class="btn btn-primary btn-fw" style="float: right;">Add Video</button></a>
             </div>
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th> # </th>
-                    <th> Photo Title</th>
-                    <th> Photo</th>
-                    <th> Photo Type</th>
+                    <th> video Title</th>
+                    <th> Embed Code</th>
+                    <th> video Type</th>
                     <th> Action</th>
                   </tr>
                 </thead>
 
                 <tbody>
                   @php($i=1)
-                  @foreach ($photo as $cat)
+                  @foreach ($video as $cat)
                       
                   <tr>
                     <td>{{$i++}}</td>
-                    <td>{{Str::limit($cat->title,40)}}</td>
-                    <td><img src="{{ asset($cat->photo)}}" style="width: 50px; height:50px;"></td>
+                    <td>{{Str::limit($cat->title,30)}}</td>
+                    <td>{{Str::limit($cat->embed_code,30)}}</td>  
                     <td>
                         @if ($cat->type ==1)
-                        <span class="badge badge-success">Big Photo</span>
+                        <span class="badge badge-success">Big video</span>
                         @else
-                        <span class="badge badge-info">Small Photo</span> 
+                        <span class="badge badge-info">Small video</span> 
                         @endif
                     </td>
                     <td>
-                      <a href="{{route('edit.photo', $cat->id)}}" class="btn btn-info">Edit</a>
-                      <a href="{{route('delete.photo', $cat->id)}}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a>
+                      <a href="{{route('edit.video', $cat->id)}}" class="btn btn-info">Edit</a>
+                      <a href="{{route('delete.video', $cat->id)}}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
                   
@@ -73,7 +73,7 @@
                   
                 </tbody>
               </table>
-              {{ $photo->links('pagination-links') }}
+              {{ $video->links('pagination-links') }}
             </div>
           </div>
         </div>
